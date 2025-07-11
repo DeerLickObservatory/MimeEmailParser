@@ -59,6 +59,9 @@ public class MimeEmailParser {
         var list:[Address] = []
         while true {
             lexer.skipSpace()
+            if lexer.isEmpty() {
+              break
+            }
             let addrs = try parseAddress(lexer: lexer, handleGroup: true)
             list.append(contentsOf: addrs)
             
